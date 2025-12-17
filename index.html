@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -36,6 +36,13 @@
             background: #071827;
             color: #dbeafe;
             box-shadow: none;
+        }
+        
+        /* Fix promo code background in Influencers table (dark mode) */
+        body.dark-mode td span[style*="font-family: monospace"] {
+            background: #0e1720 !important;
+            color: #ffffff !important;
+            border: 1px solid rgba(255,255,255,0.15);
         }
         body.dark-mode .card::before { background: #06b6d4; }
         /* Table headers stay black (headline), table body text white */
@@ -327,19 +334,19 @@
             <i class="fas fa-rocket"></i> NovaTech
         </div>
         <div class="menu-item active" onclick="showSection('overview', this)">
-            <i class="fas fa-chart-pie"></i> Vue d'ensemble
+            <i class="fas fa-chart-pie"></i> Overview
         </div>
         <div class="menu-item" onclick="showSection('ads', this)">
-            <i class="fas fa-ad"></i> Campagnes Ads
+            <i class="fas fa-ad"></i> Ad Campaigns
         </div>
         <div class="menu-item" onclick="showSection('influencers', this)">
-            <i class="fas fa-users"></i> Influenceurs
+            <i class="fas fa-users"></i> Influencers
         </div>
         <div class="menu-item" onclick="showSection('orders', this)">
-            <i class="fas fa-box"></i> Commandes
+            <i class="fas fa-box"></i> Orders
         </div>
         <div style="margin-top: auto; padding-top: 20px; border-top: 1px solid var(--secondary); font-size: 12px; color: #bdc3c7;">
-            Connecté en tant que<br><strong>Admin NovaTech</strong>
+            Logged in as<br><strong>NovaTech Admin</strong>
         </div>
     </div>
 
@@ -348,36 +355,36 @@
         <div id="overview" class="section active">
             <div class="header">
                 <div>
-                    <h1>Tableau de Bord</h1>
-                    <p style="color: var(--light-text);">Performance globale du lancement "Silent Work"</p>
+                    <h1>Dashboard</h1>
+                    <p style="color: var(--light-text);">Overall performance of the "Silent Work" launch</p>
                 </div>
                 <div style="display:flex; gap:10px; align-items:center;">
-                    <button id="theme-toggle" class="btn" title="Basculer le thème">
+                    <button id="theme-toggle" class="btn" title="Toggle theme">
                         <i id="theme-icon" class="fas fa-moon"></i>
-                        <span id="theme-text" style="margin-left:8px;">Mode Sombre</span>
+                        <span id="theme-text" style="margin-left:8px;">Dark Mode</span>
                     </button>
-                    <button class="btn btn-accent"><i class="fas fa-download"></i> Exporter Rapport</button>
+                    <button class="btn btn-accent"><i class="fas fa-download"></i> Export Report</button>
                 </div>
             </div>
 
             <div class="kpi-grid">
                 <div class="card">
-                    <h3>ROAS Global</h3>
+                    <h3>Overall ROAS</h3>
                     <div class="value">4.2</div>
-                    <div class="trend up"><i class="fas fa-arrow-up"></i> +0.2 vs Objectif</div>
+                    <div class="trend up"><i class="fas fa-arrow-up"></i> +0.2 vs Target</div>
                 </div>
                 <div class="card">
-                    <h3>Chiffre d'Affaires</h3>
+                    <h3>Revenue</h3>
                     <div class="value">4 250 TND</div>
-                    <div class="trend up"><i class="fas fa-arrow-up"></i> +15% cette semaine</div>
+                    <div class="trend up"><i class="fas fa-arrow-up"></i> +15% this week</div>
                 </div>
                 <div class="card">
-                    <h3>Précommandes</h3>
+                    <h3>Pre-orders</h3>
                     <div class="value">185</div>
-                    <div class="trend warning"><i class="fas fa-minus"></i> Reste 15 pour obj.</div>
+                    <div class="trend warning"><i class="fas fa-minus"></i> 15 remaining to goal</div>
                 </div>
                 <div class="card">
-                    <h3>CPV Moyen</h3>
+                    <h3>Average CPV</h3>
                     <div class="value">0.008 TND</div>
                     <div class="trend up"><i class="fas fa-check"></i> Excellent</div>
                 </div>
@@ -385,11 +392,11 @@
 
             <div class="charts-container">
                 <div class="chart-box">
-                    <h3>Évolution CA vs Dépenses</h3>
+                    <h3>Revenue vs Spend Over Time</h3>
                     <canvas id="mainChart"></canvas>
                 </div>
                 <div class="chart-box">
-                    <h3>Ventes par Canal</h3>
+                    <h3>Sales by Channel</h3>
                     <canvas id="pieChart"></canvas>
                 </div>
             </div>
@@ -398,36 +405,36 @@
         <div id="ads" class="section">
             <div class="header">
                 <div>
-                    <h1>Gestion des Publicités</h1>
+                    <h1>Ad Management</h1>
                     <p style="color: var(--light-text);">Meta Ads (Facebook/Instagram) & TikTok Ads</p>
                 </div>
-                <button class="btn"><i class="fas fa-plus"></i> Nouvelle Campagne</button>
+                <button class="btn"><i class="fas fa-plus"></i> New Campaign</button>
             </div>
 
             <div class="kpi-grid">
                 <div class="card" style="border-left: 4px solid #000;">
-                    <h3>Budget TikTok</h3>
+                    <h3>TikTok Budget</h3>
                     <div class="value">210 TND</div>
-                    <div class="trend">Dépensé sur 300</div>
+                    <div class="trend">Spent out of 300</div>
                 </div>
                 <div class="card" style="border-left: 4px solid #3b5998;">
-                    <h3>Budget Meta</h3>
+                    <h3>Meta Budget</h3>
                     <div class="value">90 TND</div>
-                    <div class="trend">Retargeting actif</div>
+                    <div class="trend">Active retargeting</div>
                 </div>
             </div>
 
             <div class="table-container">
-                <h3>Campagnes Actives</h3>
+                <h3>Active Campaigns</h3>
                 <table>
                     <thead>
                         <tr>
-                            <th>Publicité</th>
-                            <th>Plateforme</th>
-                            <th>Budget Jour</th>
-                            <th>Résultats</th>
-                            <th>Coût/Rés.</th>
-                            <th>Statut</th>
+                            <th>Ad</th>
+                            <th>Platform</th>
+                            <th>Daily Budget</th>
+                            <th>Results</th>
+                            <th>Cost / Result</th>
+                            <th>Status</th>
                             <th>Action</th>
                         </tr>
                     </thead>
@@ -437,14 +444,14 @@
                                 <div class="ad-preview">
                                     <div class="ad-thumb" style="background: #000; color: white;"><i class="fab fa-tiktok"></i></div>
                                     <div>
-                                        <strong>Hook: "Arrêtez le bruit"</strong><br>
-                                        <small>Video 15s • ASMR</small>
+                                        <strong>Hook: "Stop the noise"</strong><br>
+                                        <small>15s Video • ASMR</small>
                                     </div>
                                 </div>
                             </td>
                             <td>TikTok</td>
                             <td>20 TND</td>
-                            <td>45k Vues</td>
+                            <td>45k Views</td>
                             <td>0.009 CPV</td>
                             <td><span class="status-pill status-active">Active</span></td>
                             <td><i class="fas fa-ellipsis-v" style="cursor: pointer; color: #95a5a6;"></i></td>
@@ -454,14 +461,14 @@
                                 <div class="ad-preview">
                                     <div class="ad-thumb" style="background: #3b5998; color: white;"><i class="fab fa-facebook-f"></i></div>
                                     <div>
-                                        <strong>Retargeting Panier</strong><br>
-                                        <small>Carrousel Produit</small>
+                                        <strong>Cart Retargeting</strong><br>
+                                        <small>Product Carousel</small>
                                     </div>
                                 </div>
                             </td>
                             <td>Meta</td>
                             <td>10 TND</td>
-                            <td>12 Ventes</td>
+                            <td>12 Sales</td>
                             <td>7.50 CPA</td>
                             <td><span class="status-pill status-active">Active</span></td>
                             <td><i class="fas fa-ellipsis-v" style="cursor: pointer; color: #95a5a6;"></i></td>
@@ -472,15 +479,15 @@
                                     <div class="ad-thumb" style="background: #000; color: white;"><i class="fab fa-tiktok"></i></div>
                                     <div>
                                         <strong>Test: User Generated</strong><br>
-                                        <small>Video Temoignage</small>
+                                        <small>Testimonial Video</small>
                                     </div>
                                 </div>
                             </td>
                             <td>TikTok</td>
                             <td>15 TND</td>
-                            <td>2k Vues</td>
+                            <td>2k Views</td>
                             <td>0.02 CPV</td>
-                            <td><span class="status-pill status-paused">En Pause</span></td>
+                            <td><span class="status-pill status-paused">Paused</span></td>
                             <td><i class="fas fa-ellipsis-v" style="cursor: pointer; color: #95a5a6;"></i></td>
                         </tr>
                     </tbody>
@@ -491,36 +498,36 @@
         <div id="influencers" class="section">
             <div class="header">
                 <div>
-                    <h1>Relations Influenceurs</h1>
-                    <p style="color: var(--light-text);">Suivi des partenariats et codes promo</p>
+                    <h1>Influencer Relations</h1>
+                    <p style="color: var(--light-text);">Tracking partnerships and promo codes</p>
                 </div>
-                <button class="btn"><i class="fas fa-paper-plane"></i> Contacter</button>
+                <button class="btn"><i class="fas fa-paper-plane"></i> Contact</button>
             </div>
 
             <div class="kpi-grid">
                 <div class="card">
-                    <h3>Ventes Influence</h3>
+                    <h3>Influencer Sales</h3>
                     <div class="value">85</div>
-                    <div class="trend up">45% du total</div>
+                    <div class="trend up">45% of total</div>
                 </div>
                 <div class="card">
-                    <h3>ROI Influence</h3>
+                    <h3>Influencer ROI</h3>
                     <div class="value">x6.5</div>
-                    <div class="trend up">Très élevé</div>
+                    <div class="trend up">Very high</div>
                 </div>
             </div>
 
             <div class="table-container">
-                <h3>Partenaires Actuels</h3>
+                <h3>Current Partners</h3>
                 <table>
                     <thead>
                         <tr>
-                            <th>Influenceur</th>
-                            <th>Plateforme</th>
-                            <th>Code Promo</th>
-                            <th>Utilisations</th>
-                            <th>CA Généré</th>
-                            <th>Statut</th>
+                            <th>Influencer</th>
+                            <th>Platform</th>
+                            <th>Promo Code</th>
+                            <th>Uses</th>
+                            <th>Generated Revenue</th>
+                            <th>Status</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -530,7 +537,7 @@
                                     <div class="avatar">A</div>
                                     <div>
                                         <strong>@JelyfishTN</strong><br>
-                                        <small>472k Abonnés</small>
+                                        <small>472k Followers</small>
                                     </div>
                                 </div>
                             </td>
@@ -538,7 +545,7 @@
                             <td><span style="background: #eee; padding: 2px 6px; border-radius: 4px; font-family: monospace;">NOVA20</span></td>
                             <td>82</td>
                             <td>3 280 TND</td>
-                            <td><span class="status-pill status-active">En cours</span></td>
+                            <td><span class="status-pill status-active">Ongoing</span></td>
                         </tr>
                         <tr>
                             <td>
@@ -546,7 +553,7 @@
                                     <div class="avatar" style="background: #e67e22;">S</div>
                                     <div>
                                         <strong>@SetupTunisie</strong><br>
-                                        <small>15k Abonnés</small>
+                                        <small>15k Followers</small>
                                     </div>
                                 </div>
                             </td>
@@ -564,8 +571,8 @@
         <div id="orders" class="section">
             <div class="header">
                 <div>
-                    <h1>Gestion des Commandes</h1>
-                    <p style="color: var(--light-text);">Logistique et Expéditions</p>
+                    <h1>Order Management</h1>
+                    <p style="color: var(--light-text);">Logistics and Shipments</p>
                 </div>
                 <button class="btn"><i class="fas fa-file-export"></i> Export CSV</button>
             </div>
@@ -575,50 +582,50 @@
                     <thead>
                         <tr>
                             <th>ID</th>
-                            <th>Client</th>
+                            <th>Customer</th>
                             <th>Date</th>
-                            <th>Produits</th>
+                            <th>Products</th>
                             <th>Total</th>
                             <th>Destination</th>
-                            <th>Statut</th>
+                            <th>Status</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
                             <td>#NT-1024</td>
                             <td><strong>Mohamed Ben Salah</strong></td>
-                            <td>Auj. 10:30</td>
-                            <td>Clavier Méca Silent (x1)</td>
+                            <td>Today 10:30</td>
+                            <td>Silent Mechanical Keyboard (x1)</td>
                             <td>89.00 TND</td>
                             <td>Tunis, TN</td>
-                            <td><span class="status-pill status-active">Expédié</span></td>
+                            <td><span class="status-pill status-active">Shipped</span></td>
                         </tr>
                         <tr>
                             <td>#NT-1023</td>
                             <td><strong>Ahmed Ben Youssef</strong></td>
-                            <td>Hier 18:45</td>
-                            <td>Pack Ergo (Support + Tapis)</td>
+                            <td>Yesterday 18:45</td>
+                            <td>Ergo Pack (Stand + Mat)</td>
                             <td>45.50 TND</td>
                             <td>Sfax, TN</td>
-                            <td><span class="status-pill status-pending">En préparation</span></td>
+                            <td><span class="status-pill status-pending">Preparing</span></td>
                         </tr>
                         <tr>
                             <td>#NT-1022</td>
                             <td><strong>Fatma Trabelsi</strong></td>
-                            <td>Hier 14:20</td>
-                            <td>Clavier Custom White</td>
+                            <td>Yesterday 14:20</td>
+                            <td>Custom White Keyboard</td>
                             <td>110.00 TND</td>
                             <td>Sousse, TN</td>
-                            <td><span class="status-pill status-active">Expédié</span></td>
+                            <td><span class="status-pill status-active">Shipped</span></td>
                         </tr>
                         <tr>
                             <td>#NT-1021</td>
                             <td><strong>Sami Haddad</strong></td>
-                            <td>14 Déc</td>
-                            <td>Kit Cable Management</td>
+                            <td>Dec 14</td>
+                            <td>Cable Management Kit</td>
                             <td>25.00 TND</td>
                             <td>Bizerte, TN</td>
-                            <td><span class="status-pill status-ended">Livré</span></td>
+                            <td><span class="status-pill status-ended">Delivered</span></td>
                         </tr>
                     </tbody>
                 </table>
@@ -635,7 +642,7 @@
             element.classList.add('active');
         }
 
-        // Configuration Graphiques
+        // Chart Configuration
         document.addEventListener('DOMContentLoaded', function() {
             // Theme initialization: apply saved theme (if any)
             try {
@@ -644,10 +651,10 @@
                     const ti = document.getElementById('theme-icon');
                     if (ti) ti.classList.replace('fa-moon', 'fa-sun');
                     const tt = document.getElementById('theme-text');
-                    if (tt) tt.innerText = 'Mode Clair';
+                    if (tt) tt.innerText = 'Light Mode';
                 } else {
                     const tt = document.getElementById('theme-text');
-                    if (tt) tt.innerText = 'Mode Sombre';
+                    if (tt) tt.innerText = 'Dark Mode';
                 }
 
                 const themeToggle = document.getElementById('theme-toggle');
@@ -659,11 +666,11 @@
                         if (isDark) {
                             localStorage.setItem('theme', 'dark');
                             if (icon) icon.classList.replace('fa-moon', 'fa-sun');
-                            if (text) text.innerText = 'Mode Clair';
+                            if (text) text.innerText = 'Light Mode';
                         } else {
                             localStorage.removeItem('theme');
                             if (icon) icon.classList.replace('fa-sun', 'fa-moon');
-                            if (text) text.innerText = 'Mode Sombre';
+                            if (text) text.innerText = 'Dark Mode';
                         }
                     });
                 }
@@ -677,9 +684,9 @@
                 new Chart(ctxRev, {
                     type: 'line',
                     data: {
-                        labels: ['Lundi', 'Mardi', 'Mercredi', 'Jeudi', 'Vendredi'],
+                        labels: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'],
                         datasets: [{
-                            label: 'Chiffre d\'Affaires (TND)',
+                            label: 'Revenue (TND)',
                             data: [150, 300, 450, 1200, 2150], 
                             borderColor: '#27ae60',
                             backgroundColor: 'rgba(39, 174, 96, 0.1)',
@@ -700,7 +707,7 @@
                 new Chart(ctxPie, {
                     type: 'doughnut',
                     data: {
-                        labels: ['Influence (JelyfishTN)', 'TikTok Ads', 'Meta Ads', 'Direct'],
+                        labels: ['Influencer (JelyfishTN)', 'TikTok Ads', 'Meta Ads', 'Direct'],
                         datasets: [{
                             data: [45, 30, 15, 10],
                             backgroundColor: ['#8e44ad', '#000000', '#3b5998', '#95a5a6']
