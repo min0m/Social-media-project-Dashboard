@@ -295,6 +295,19 @@
             box-shadow: 0 4px 15px rgba(0,0,0,0.03);
             height: 320px; 
             position: relative;
+            overflow: hidden;
+        }
+
+        /* Ensure Chart.js canvases fit and don't overflow their card */
+        .chart-box h3 { margin: 0 0 12px 0; }
+
+        .chart-box canvas {
+            width: 100% !important;
+            /* leave room for the title inside the card */
+            height: calc(100% - 44px) !important;
+            max-height: calc(100% - 44px) !important;
+            display: block;
+            box-sizing: border-box;
         }
         
 
@@ -703,4 +716,3 @@
     </script>
 </body>
 </html>
-
