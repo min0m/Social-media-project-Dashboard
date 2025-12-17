@@ -73,11 +73,11 @@
             box-shadow: 0 4px 6px rgba(0,0,0,0.1);
         }
 
-        /* Main Content Styles */
+ 
         .main-content {
             margin-left: 250px;
             padding: 40px;
-            width: calc(100% - 250px); /* Ajustement pour éviter le débordement */
+            width: calc(100% - 250px); 
             min-height: 100vh;
             box-sizing: border-box;
         }
@@ -170,7 +170,7 @@
         .trend.down { color: var(--danger); }
         .trend.warning { color: var(--warning); }
 
-        /* Tables */
+
         .table-container {
             background: white;
             padding: 25px;
@@ -243,10 +243,10 @@
             font-weight: bold;
         }
 
-        /* --- CORRECTION DES GRAPHIQUES --- */
+      
         .charts-container {
             display: grid;
-            grid-template-columns: 2fr 1fr; /* Ratio 2/3 et 1/3 */
+            grid-template-columns: 2fr 1fr; 
             gap: 25px;
             margin-bottom: 30px;
         }
@@ -256,12 +256,12 @@
             padding: 20px;
             border-radius: 12px;
             box-shadow: 0 4px 15px rgba(0,0,0,0.03);
-            /* Hauteur fixe pour empêcher l'expansion excessive */
             height: 320px; 
             position: relative;
         }
+        
 
-        /* Sur mobile, on passe en une seule colonne */
+       
         @media (max-width: 900px) {
             .charts-container {
                 grid-template-columns: 1fr;
@@ -530,7 +530,7 @@
                     <tbody>
                         <tr>
                             <td>#NT-1024</td>
-                            <td><strong>Thomas B.</strong></td>
+                            <td><strong>Mohamed Ben Salah</strong></td>
                             <td>Auj. 10:30</td>
                             <td>Clavier Méca Silent (x1)</td>
                             <td>89.00 TND</td>
@@ -539,7 +539,7 @@
                         </tr>
                         <tr>
                             <td>#NT-1023</td>
-                            <td><strong>Sarah L.</strong></td>
+                            <td><strong>Ahmed Ben Youssef</strong></td>
                             <td>Hier 18:45</td>
                             <td>Pack Ergo (Support + Tapis)</td>
                             <td>45.50 TND</td>
@@ -548,7 +548,7 @@
                         </tr>
                         <tr>
                             <td>#NT-1022</td>
-                            <td><strong>Mehdi K.</strong></td>
+                            <td><strong>Fatma Trabelsi</strong></td>
                             <td>Hier 14:20</td>
                             <td>Clavier Custom White</td>
                             <td>110.00 TND</td>
@@ -557,7 +557,7 @@
                         </tr>
                         <tr>
                             <td>#NT-1021</td>
-                            <td><strong>Alex R.</strong></td>
+                            <td><strong>Sami Haddad</strong></td>
                             <td>14 Déc</td>
                             <td>Kit Cable Management</td>
                             <td>25.00 TND</td>
@@ -599,7 +599,7 @@
                     },
                     options: { 
                         responsive: true, 
-                        maintainAspectRatio: false // Fonctionne bien maintenant grâce à la hauteur fixe CSS
+                        maintainAspectRatio: false 
                     }
                 });
             }
